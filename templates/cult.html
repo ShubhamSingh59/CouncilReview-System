@@ -8,7 +8,12 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Document</title>
     <script src="https://kit.fontawesome.com/479f07b2da.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../Style/cult.css">
+    <link rel="stylesheet" href="../static/Style/cult.css">
+    <style>
+        .fa-star {
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -16,7 +21,7 @@
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="../Images/iitgnlogo.png" alt="Logo" width="40" height="35"
+                    <img src="../static/Images/iitgnlogo.png" alt="Logo" width="40" height="35"
                         class="d-inline-block align-text-top">
                     IITGN Council Review and Feedback Portal
                 </a>
@@ -35,16 +40,21 @@
     </header>
     <div class="container">
         <h1 class="text-center top-heading">Cultural Council</h1>
-        <form action="/tech" method="POST">
+        <form action="/cult_submit" method="POST">
             <div class="mb-3">
-                <div class="star-widget" >
+                <div class="star-widget">
                     <label for="secyrating" class="form-label">Cultural Secretary Rating:</label>
-                    <div id="acad-secyrating" class="star-rating">
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
+                    <div id="cult-secyrating" class="star-rating">
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'cultralSecRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'cultralSecRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'cultralSecRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'cultralSecRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'cultralSecRating')"
+                            style="color: aliceblue; border-color: black;"></i>
                     </div>
                 </div>
             </div>
@@ -52,149 +62,209 @@
             <div class="mb-3">
                 <div class="d-flex align-items-center">
                     <label for="councilRating" class="form-label">Cultural Council rating:</label>
-                    <div id="acad-councilRating" class="star-rating">
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
+                    <div id="cult-councilRating" class="star-rating">
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'cultralCouncilRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'cultralCouncilRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'cultralCouncilRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'cultralCouncilRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'cultralCouncilRating')"
+                            style="color: aliceblue; border-color: black;"></i>
                     </div>
                 </div>
             </div>
 
             <div class="mb-3">
                 <div class="d-flex align-items-center">
-                    <label for="metis" class="form-label">Sargam(music club) rating:</label>
-                    <div id="acad-secyrating" class="star-rating">
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
+                    <label for="sargam" class="form-label">Sargam(music club) rating:</label>
+                    <div id="sargam-secyrating" class="star-rating">
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'sargamRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'sargamRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'sargamRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'sargamRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'sargamRating')"
+                            style="color: aliceblue; border-color: black;"></i>
                     </div>
                 </div>
             </div>
 
             <div class="mb-3">
                 <div class="d-flex align-items-center">
-                    <label for="meanMechanics" class="form-label"> Step_up(dance club) rating:</label>
-                    <div id="acad-councilRating" class="star-rating">
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
+                    <label for="stepup" class="form-label"> Step_up(dance club) rating:</label>
+                    <div id="cult-councilRating" class="star-rating">
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'stepUpRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'stepUpRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'stepUpRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'stepUpRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'stepUpRating')"
+                            style="color: aliceblue; border-color: black;"></i>
                     </div>
                 </div>
             </div>
 
             <div class="mb-3">
                 <div class="d-flex align-items-center">
-                    <label for="digis" class="form-label">The Literary Society(Literary Arts Club) rating: </label>
-                    <div id="acad-secyrating" class="star-rating">
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
+                    <label for="literary" class="form-label">The Literary Society(Literary Arts Club) rating: </label>
+                    <div id="cult-secyrating" class="star-rating">
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'literaryRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'literaryRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'literaryRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'literaryRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'literaryRating')"
+                            style="color: aliceblue; border-color: black;"></i>
                     </div>
                 </div>
             </div>
 
             <div class="mb-3">
                 <div class="d-flex align-items-center">
-                    <label for="odyssey" class="form-label">Palette(Arts Club) rating: </label>
-                    <div id="acad-councilRating" class="star-rating">
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
+                    <label for="Palette" class="form-label">Palette(Arts Club) rating: </label>
+                    <div id="cult-councilRating" class="star-rating">
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'paletteRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'paletteRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'paletteRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'paletteRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'paletteRating')"
+                            style="color: aliceblue; border-color: black;"></i>
                     </div>
                 </div>
             </div>
             <div class="mb-3">
                 <div class="d-flex align-items-center">
-                    <label for="Anveshanam" class="form-label">16 PIXELS(Photography Club) rating:</label>
-                    <div id="acad-secyrating" class="star-rating">
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
+                    <label for="16 PIXELS" class="form-label">16 PIXELS(Photography Club) rating:</label>
+                    <div id="cult-secyrating" class="star-rating">
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'pixelsRating')"
+                        style="color: aliceblue; border-color: black;"></i>
+                    <i class="fa-solid fa-star" onclick="rateStar(this, 'pixelsRating')"
+                        style="color: aliceblue; border-color: black;"></i>
+                    <i class="fa-solid fa-star" onclick="rateStar(this, 'pixelsRating')"
+                        style="color: aliceblue; border-color: black;"></i>
+                    <i class="fa-solid fa-star" onclick="rateStar(this, 'pixelsRating')"
+                        style="color: aliceblue; border-color: black;"></i>
+                    <i class="fa-solid fa-star" onclick="rateStar(this, 'pixelsRating')"
+                        style="color: aliceblue; border-color: black;"></i>
                     </div>
                 </div>
             </div>
 
             <div class="mb-3">
                 <div class="d-flex align-items-center">
-                    <label for="grasp" class="form-label">Abhinaya(Drama Club) rating:</label>
-                    <div id="acad-councilRating" class="star-rating">
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
+                    <label for="Abhinaya" class="form-label">Abhinaya(Drama Club) rating:</label>
+                    <div id="cult-councilRating" class="star-rating">
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'abhinayaRating')"
+                        style="color: aliceblue; border-color: black;"></i>
+                    <i class="fa-solid fa-star" onclick="rateStar(this, 'abhinayaRating')"
+                        style="color: aliceblue; border-color: black;"></i>
+                    <i class="fa-solid fa-star" onclick="rateStar(this, 'abhinayaRating')"
+                        style="color: aliceblue; border-color: black;"></i>
+                    <i class="fa-solid fa-star" onclick="rateStar(this, 'abhinayaRating')"
+                        style="color: aliceblue; border-color: black;"></i>
+                    <i class="fa-solid fa-star" onclick="rateStar(this, 'abhinayaRating')"
+                        style="color: aliceblue; border-color: black;"></i>
                     </div>
                 </div>
             </div>
             <div class="mb-3">
                 <div class="d-flex align-items-center">
-                    <label for="mlGroup" class="form-label">Vinteo(Film Making Club) rating:</label>
-                    <div id="acad-secyrating" class="star-rating">
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
+                    <label for="Vinteo" class="form-label">Vinteo(Film Making Club) rating:</label>
+                    <div id="cult-secyrating" class="star-rating">
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'vinteoRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'vinteoRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'vinteoRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'vinteoRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'vinteoRating')"
+                            style="color: aliceblue; border-color: black;"></i>
                     </div>
                 </div>
             </div>
             <div class="mb-3">
                 <div class="d-flex align-items-center">
-                    <label for="mlGroup" class="form-label">Cinematheque(Movie Screening Club) rating:</label>
-                    <div id="acad-secyrating" class="star-rating">
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
+                    <label for="Cinematheque" class="form-label">Cinematheque(Movie Screening Club) rating:</label>
+                    <div id="cult-secyrating" class="star-rating">
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'cinemathequeRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'cinemathequeRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'cinemathequeRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'cinemathequeRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'cinemathequeRating')"
+                            style="color: aliceblue; border-color: black;"></i>
                     </div>
                 </div>
             </div>
             <div class="mb-3">
                 <div class="d-flex align-items-center">
-                    <label for="mlGroup" class="form-label">Orenda(Gender and Sexuality Club) rating:</label>
-                    <div id="acad-secyrating" class="star-rating">
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
+                    <label for="Orenda" class="form-label">Orenda(Gender and Sexuality Club) rating:</label>
+                    <div id="cult-secyrating" class="star-rating">
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'orendaRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'orendaRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'orendaRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'orendaRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'orendaRating')"
+                            style="color: aliceblue; border-color: black;"></i>
                     </div>
                 </div>
             </div>
             <div class="mb-3">
                 <div class="d-flex align-items-center">
-                    <label for="mlGroup" class="form-label">Quizzing Society(Quizzing club) rating:</label>
-                    <div id="acad-secyrating" class="star-rating">
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
+                    <label for="QuizzingSociety" class="form-label">Quizzing Society(Quizzing club) rating:</label>
+                    <div id="cult-secyrating" class="star-rating">
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'quizzingSocietyRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'quizzingSocietyRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'quizzingSocietyRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'quizzingSocietyRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'quizzingSocietyRating')"
+                            style="color: aliceblue; border-color: black;"></i>
                     </div>
                 </div>
             </div>
             <div class="mb-3">
                 <div class="d-flex align-items-center">
-                    <label for="mlGroup" class="form-label">Awaam(Political club) rating:</label>
-                    <div id="acad-secyrating" class="star-rating">
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" style="color: aliceblue; border-color: black;"></i>
+                    <label for="Awaam" class="form-label">Awaam(Political club) rating:</label>
+                    <div id="cult-secyrating" class="star-rating">
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'awaamRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'awaamRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'awaamRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'awaamRating')"
+                            style="color: aliceblue; border-color: black;"></i>
+                        <i class="fa-solid fa-star" onclick="rateStar(this, 'awaamRating')"
+                            style="color: aliceblue; border-color: black;"></i>
                     </div>
                 </div>
             </div>
@@ -203,6 +273,19 @@
                     council can better serve the community</label>
                 <textarea class="form-control" id="feedback" name="feedback" rows="4"></textarea>
             </div>
+    <input type="hidden" id="cultralSecRating" name="cultralSecRating" value="0">
+    <input type="hidden" id="cultralCouncilRating" name="cultralCouncilRating" value="0">
+    <input type="hidden" id="sargamRating" name="sargamRating" value="0">
+    <input type="hidden" id="stepUpRating" name="stepUpRating" value="0">
+    <input type="hidden" id="literaryRating" name="literaryRating" value="0">
+    <input type="hidden" id="paletteRating" name="paletteRating" value="0">
+    <input type="hidden" id="pixelsRating" name="pixelsRating" value="0">
+    <input type="hidden" id="abhinayaRating" name="abhinayaRating" value="0">
+    <input type="hidden" id="vinteoRating" name="vinteoRating" value="0">
+    <input type="hidden" id="cinemathequeRating" name="cinemathequeRating" value="0">
+    <input type="hidden" id="orendaRating" name="orendaRating" value="0">
+    <input type="hidden" id="quizzingSocietyRating" name="quizzingSocietyRating" value="0">
+    <input type="hidden" id="awaamRating" name="awaamRating" value="0">
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
@@ -213,17 +296,17 @@
 
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
             <li class="ms-3">
-                <img src="../Images/twitter.png" alt="twitter" width="30" height="24">
+                <img src="../static/Images/twitter.png" alt="twitter" width="30" height="24">
             </li>
             <li class="ms-3">
-                <img src="../Images/facebook.png" alt="facebook" width="30" height="24">
+                <img src="../static/Images/facebook.png" alt="facebook" width="30" height="24">
             </li>
             <li class="ms-3">
-                <img src="../Images/instagram (1).png" alt="instagram" width="30" height="24">
+                <img src="../static/Images/instagram (1).png" alt="instagram" width="30" height="24">
             </li>
         </ul>
     </footer>
-
+    <script src="../static/JS/Script.js"></script>
 </body>
 
 </html>
