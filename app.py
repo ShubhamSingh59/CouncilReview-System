@@ -208,7 +208,8 @@ def create_user():
         cur.execute("CREATE USER %s@'localhost' IDENTIFIED BY %s", (email, password))
       
         cur.execute("GRANT SELECT ON *.* TO %s@'localhost'",(email,))
-        
+        mysql.connection.commit()
+        cur.execute("GRANT INSERT ON *.* TO %s@'localhost'",(email,))
         mysql.connection.commit()
         cur.execute("INSERT INTO users (email, password) VALUES (%s, %s)", (email, password))
        

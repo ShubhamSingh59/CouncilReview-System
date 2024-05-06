@@ -58,4 +58,4 @@ CREATE TABLE users(
   password varchar(100)
 );
 
-select * from users;
+select * from sports_council;
