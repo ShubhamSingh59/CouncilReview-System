@@ -54,7 +54,7 @@ CREATE TABLE irp_council(
   Feedback VARCHAR(500)
 );
 CREATE TABLE users(
-  email varchar(50) unique,
+  email varchar(50) unique, 
   password varchar(100)
 );
 
