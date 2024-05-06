@@ -7,16 +7,27 @@ import config
 
 # Create the Flask application instance
 app = Flask(__name__)
-app.config['MYSQL_HOST'] = "localhost"
-app.config['MYSQL_USER'] = "root"
-app.config['MYSQL_PASSWORD'] = "Stromer/2003"
-app.config['MYSQL_DB'] = "council"
+app.config['MYSQL_HOST'] = config.MYSQL_HOST
+app.config['MYSQL_DB'] = config.MYSQL_DB
+
+def set_mysql_credentials(user, password):
+    app.config['MYSQL_USER'] = user
+    app.config['MYSQL_PASSWORD'] = password
+
 
 mysql = MySQL(app)
 
 @app.route("/")
 def home():
     return render_template('Home.html')
+
+@app.route('/login')
+def Login():
+    return render_template('Login.html')
+
+@app.route('/signin')
+def Signin():
+    return render_template('Signin.html')
 
 @app.route('/tech')
 def tech():
@@ -183,6 +194,59 @@ def irp_submit():
         cur.close()
 
         return '<script>alert("Data submitted successfully"); window.location.href = "/";</script>'
+
+@app.route('/api/signin', methods=['POST'])
+def create_user():
+    try:
+        app.config['MYSQL_USER'] = config.MYSQL_USER
+        app.config['MYSQL_PASSWORD'] = config.MYSQL_PASSWORD
+        
+        email = request.form['email']
+        password = request.form['password']
+        
+        cur = mysql.connection.cursor()
+        cur.execute("CREATE USER %s@'localhost' IDENTIFIED BY %s", (email, password))
+      
+        cur.execute("GRANT SELECT ON *.* TO %s@'localhost'",(email,))
+        
+        mysql.connection.commit()
+        cur.execute("INSERT INTO users (email, password) VALUES (%s, %s)", (email, password))
+       
+        mysql.connection.commit() 
+        cur.close()
+        
+        return '<script>alert("Signin successfull"); window.location.href = "/";</script>'
+    except Exception as e:
+        return '<script>alert("error in sigin process"); window.location.href = "/signin";</script>'
+
+@app.route('/api/login', methods=['POST'])
+def newLogin():
+    try:
+        #set_mysql_credentials('root', 'Stromer/2003')
+        email = request.form['email']
+        password = request.form['password']
+        set_mysql_credentials(email, password)
+        cur = mysql.connection.cursor()
+        # Check if the user exists in the users table
+        cur.execute("SELECT * FROM users WHERE email = %s AND password = %s", (email, password))
+        mysql.connection.commit() 
+        user_data = cur.fetchone()
+        print(user_data)
+        if user_data:
+            # Set MySQL credential
+                cur = mysql.connection.cursor()
+            # Execute "SHOW TABLES" query
+            # cur.execute("SELECT table_name FROM information_schema.tables WHERE table_schema = 'sports_management' AND table_name != 'Users'")
+                mysql.connection.commit() 
+            # tables = cur.fetchall()
+            #print(tables)
+                cur.close()
+                return '<script>alert("login successfull"); window.location.href = "/";</script>'
+        else:
+                return '<script>alert("invalid credential"); window.location.href = "/login";</script>'
+        
+    except Exception as e:
+        return '<script>alert("there is some error"); window.location.href = "/login";</script>'
 
 if __name__ == '__main__':
     app.run(debug=True)

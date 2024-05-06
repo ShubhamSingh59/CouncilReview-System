@@ -53,4 +53,9 @@ CREATE TABLE irp_council(
   IRP_Council_rating INT,
   Feedback VARCHAR(500)
 );
-select * from irp_council;
+CREATE TABLE users(
+  email varchar(50) unique,
+  password varchar(100)
+);
+
+select * from users;

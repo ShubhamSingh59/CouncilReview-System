@@ -8,7 +8,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Document</title>
     <script src="https://kit.fontawesome.com/479f07b2da.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../static/Style/irp.css">
+    <link rel="stylesheet" href="../static/Style/Login.css">
     <style>
         .fa-star {
             cursor: pointer;
@@ -45,41 +45,17 @@
         </nav>
     </header>
     <div class="container">
-        <h1 class="text-center top-heading">IR&P Council</h1>
-        <form action="/irp_submit" method="POST">
+        <h1 class="text-center top-heading">Login in Your Account</h1>
+        <form action="/api/login" method="POST">
             <div class="mb-3">
-                <div class="star-widget" >
-                    <label for="secyrating" class="form-label">IR&P Secretary Rating:</label>
-                    <div id="irp-secyrating" class="star-rating">
-                        <i class="fa-solid fa-star" onclick="rateStar(this, 'irpSecRating')" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" onclick="rateStar(this, 'irpSecRating')" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" onclick="rateStar(this, 'irpSecRating')" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" onclick="rateStar(this, 'irpSecRating')" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" onclick="rateStar(this, 'irpSecRating')" style="color: aliceblue; border-color: black;"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mb-3">
-                <div class="d-flex align-items-center">
-                    <label for="councilRating" class="form-label">IR&P Council rating:</label>
-                    <div id="irp-councilRating" class="star-rating">
-                        <i class="fa-solid fa-star" onclick="rateStar(this, 'irpCouncilRating')" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" onclick="rateStar(this, 'irpCouncilRating')" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" onclick="rateStar(this, 'irpCouncilRating')" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" onclick="rateStar(this, 'irpCouncilRating')" style="color: aliceblue; border-color: black;"></i>
-                        <i class="fa-solid fa-star" onclick="rateStar(this, 'irpCouncilRating')" style="color: aliceblue; border-color: black;"></i>
-                    </div>
-                </div>
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required placeholder="ram@iitgn.ac.in">
             </div>
             <div class="mb-3">
-                <label for="feedback" class="form-label">We value your feedback. Please share your thoughts on how the
-                    council can better serve the community</label>
-                <textarea class="form-control" id="feedback" name="feedback" rows="4"></textarea>
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
             </div>
-            <input type="hidden" id="irpSecRating" name="irpSecRating" value="0">
-            <input type="hidden" id="irpCouncilRating" name="irpCouncilRating" value="0">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Login</button>
         </form>
     </div>
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
