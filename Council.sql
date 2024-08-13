@@ -45,7 +45,7 @@ CREATE TABLE welfare_council(
 );
 CREATE TABLE acad_council(
   Acadmic_Secretary_rating INT,
-  Acadmic_Council_rating INT,
+  Acadmic_Council_rating INT, 
   Feedback VARCHAR(500)
 );
 CREATE TABLE irp_council(
@@ -59,3 +59,6 @@ CREATE TABLE users(
 );
 
 select * from sports_council;
+
+
+
